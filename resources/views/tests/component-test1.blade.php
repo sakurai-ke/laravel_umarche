@@ -8,5 +8,5 @@
     <x-tests.card title="タイトル1" content="本文1" :message="$message" />
     {{-- content,:messageについては指定していないのでcard.blade.phpのpropsで指定した初期値が設定される --}}
     <x-tests.card title="タイトル2" />
-    {{-- <x-tests.card title="CSSを変更したい" class="bg-red-300" /> --}}
+    <x-tests.card title="CSSを変更したい" class="bg-red-300" />
 </x-tests.app>
