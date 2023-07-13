@@ -16,16 +16,17 @@ use App\Http\Controllers\LifeCycleTestController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('user.dashboard');
+})->middleware(['auth:users'])->name('dashboard');
 
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
 Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
 Route::get('/servicecontainertest', [LifeCycleTestController::class, 'showServiceContainerTest']);
 Route::get('/serviceprovidertest', [LifeCycleTestController::class, 'showServiceProviderTest']);
 
+// 現在のファイルと同じディレクトリにあるauth.phpファイルを読み込むという意味
 require __DIR__.'/auth.php';
