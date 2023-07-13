@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\OwnersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.welcome');
 });
+
+// adminで認証していた場合（ログインした場合）に表示
+Route::resource('owners', OwnersController::class)
+->middleware('auth:admin');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
